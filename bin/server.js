@@ -18,7 +18,10 @@ var launch = function(profile) {
       'server_publicUrl',
       'server_cookieSecret',
       'influx_taskclusterdev',
+      'influx_buildbot',
       'influx_grafana',
+      'influx_stats-mshal-garbage',
+      'influx_testing',
       'aws_accessKeyId',
       'aws_secretAccessKey'
     ],
@@ -56,32 +59,28 @@ var launch = function(profile) {
   );
 
 
-  var parts = url.parse(cfg.get('influx:taskclusterdev'));
-  configFile = configFile.replace(
-    '{{influx:taskclusterdev:username}}',
-    parts.auth.split(':')[0]
-  ).replace(
-    '{{influx:taskclusterdev:password}}',
-    parts.auth.split(':')[1]
-  );
-  parts.auth = null;
-  configFile = configFile.replace(
-    '{{influx:taskclusterdev}}',
-    url.format(parts)
-  );
-  parts = url.parse(cfg.get('influx:grafana'));
-  configFile = configFile.replace(
-    '{{influx:grafana:username}}',
-    parts.auth.split(':')[0]
-  ).replace(
-    '{{influx:grafana:password}}',
-    parts.auth.split(':')[1]
-  );
-  parts.auth = null;
-  configFile = configFile.replace(
-    '{{influx:grafana}}',
-    url.format(parts)
-  );
+  var patchConfig = function(name) {
+    var parts = url.parse(cfg.get('influx:' + name));
+    configFile = configFile.replace(
+      '{{influx:' + name + ':username}}',
+      parts.auth.split(':')[0]
+    ).replace(
+      '{{influx:' + name + ':password}}',
+      parts.auth.split(':')[1]
+    );
+    parts.auth = null;
+    configFile = configFile.replace(
+      '{{influx:' + name + '}}',
+      url.format(parts)
+    );
+  };
+
+
+  patchConfig('grafana');
+  patchConfig('taskclusterdev');
+  patchConfig('buildbot');
+  patchConfig('stats-mshal-garbage');
+  patchConfig('testing');
 
 
   app.get('/grafana/config.js', ensureAuth, function(req, res) {

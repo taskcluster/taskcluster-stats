@@ -20,12 +20,6 @@ function (Settings) {
 
     // InfluxDB example setup (the InfluxDB databases specified need to exist)
     datasources: {
-      taskclusterdev: {
-        type:     'influxdb',
-        url:      "{{influx:taskclusterdev}}",
-        username: "{{influx:taskclusterdev:username}}",
-        password: "{{influx:taskclusterdev:password}}"
-      },
       grafana: {
         type:     'influxdb',
         url:      "{{influx:grafana}}",
@@ -33,6 +27,30 @@ function (Settings) {
         password: "{{influx:grafana:password}}",
         grafanaDB: true
       },
+      taskclusterdev: {
+        type:     'influxdb',
+        url:      "{{influx:taskclusterdev}}",
+        username: "{{influx:taskclusterdev:username}}",
+        password: "{{influx:taskclusterdev:password}}"
+      },
+      buildbot: {
+        type:     'influxdb',
+        url:      "{{influx:buildbot}}",
+        username: "{{influx:buildbot:username}}",
+        password: "{{influx:buildbot:password}}"
+      },
+      stats-mshal-garbage: {
+        type:     'influxdb',
+        url:      "{{influx:stats-mshal-garbage}}",
+        username: "{{influx:stats-mshal-garbage:username}}",
+        password: "{{influx:stats-mshal-garbage:password}}"
+      },
+      testing: {
+        type:     'influxdb',
+        url:      "{{influx:testing}}",
+        username: "{{influx:testing:username}}",
+        password: "{{influx:testing:password}}"
+      }
     },
 
     // Graphite & Elasticsearch example setup
@@ -92,9 +110,16 @@ function (Settings) {
       password: ''
     },
 
-    // Add your own custom pannels
+    // Change window title prefix from 'Grafana - <dashboard title>'
+    window_title_prefix: 'Grafana - TaskCluster',
+
+    // Add your own custom panels
     plugins: {
-      panels: []
+      // list of plugin panels
+      panels: [],
+      // requirejs modules in plugins folder that should be loaded
+      // for example custom datasources
+      dependencies: [],
     }
 
   });

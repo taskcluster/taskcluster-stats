@@ -1,8 +1,11 @@
 module.exports = {
   // Influx database connection strings, to be provided in config.js
   influx: {
+    grafana:                        undefined,
     taskclusterdev:                 undefined,
-    grafana:                        undefined
+    buildbot:                       undefined,
+    'stats-mshal-garbage':          undefined,
+    testing:                        undefined
   },
 
   // Server configuration
