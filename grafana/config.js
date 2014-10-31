@@ -39,7 +39,7 @@ function (Settings) {
         username: "{{influx:buildbot:username}}",
         password: "{{influx:buildbot:password}}"
       },
-      stats-mshal-garbage: {
+      'stats-mshal-garbage': {
         type:     'influxdb',
         url:      "{{influx:stats-mshal-garbage}}",
         username: "{{influx:stats-mshal-garbage:username}}",
