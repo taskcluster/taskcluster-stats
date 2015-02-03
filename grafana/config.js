@@ -50,6 +50,12 @@ function (Settings) {
         url:      "{{influx:testing}}",
         username: "{{influx:testing:username}}",
         password: "{{influx:testing:password}}"
+      },
+      raptor: {
+        type:     'influxdb',
+        url:      "{{influx:raptor}}",
+        username: "{{influx:raptor:username}}",
+        password: "{{influx:raptor:password}}"
       }
     },
 

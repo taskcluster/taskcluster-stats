@@ -22,6 +22,7 @@ var launch = function(profile) {
       'influx_grafana',
       'influx_stats-mshal-garbage',
       'influx_testing',
+      'influx_raptor',
       'aws_accessKeyId',
       'aws_secretAccessKey'
     ],
@@ -81,6 +82,7 @@ var launch = function(profile) {
   patchConfig('buildbot');
   patchConfig('stats-mshal-garbage');
   patchConfig('testing');
+  patchConfig('raptor');
 
 
   app.get('/grafana/config.js', ensureAuth, function(req, res) {

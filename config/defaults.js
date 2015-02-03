@@ -5,7 +5,8 @@ module.exports = {
     taskclusterdev:                 undefined,
     buildbot:                       undefined,
     'stats-mshal-garbage':          undefined,
-    testing:                        undefined
+    testing:                        undefined,
+    raptor:                         undefined
   },
 
   // Server configuration
