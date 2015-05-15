@@ -39,6 +39,12 @@ function (Settings) {
         username: "{{influx:buildbot:username}}",
         password: "{{influx:buildbot:password}}"
       },
+      'buildbot-try': {
+        type:     'influxdb',
+        url:      "{{influx:buildbot-try}}",
+        username: "{{influx:buildbot-try:username}}",
+        password: "{{influx:buildbot-try:password}}"
+      },
       'stats-mshal-garbage': {
         type:     'influxdb',
         url:      "{{influx:stats-mshal-garbage}}",
