@@ -4,6 +4,7 @@ module.exports = {
     grafana:                        undefined,
     taskclusterdev:                 undefined,
     buildbot:                       undefined,
+    'buildbot-try':                 undefined,
     'stats-mshal-garbage':          undefined,
     testing:                        undefined,
     raptor:                         undefined

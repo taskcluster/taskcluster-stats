@@ -19,6 +19,7 @@ var launch = function(profile) {
       'server_cookieSecret',
       'influx_taskclusterdev',
       'influx_buildbot',
+      'influx_buildbot-try',
       'influx_grafana',
       'influx_stats-mshal-garbage',
       'influx_testing',
@@ -80,6 +81,7 @@ var launch = function(profile) {
   patchConfig('grafana');
   patchConfig('taskclusterdev');
   patchConfig('buildbot');
+  patchConfig('buildbot-try');
   patchConfig('stats-mshal-garbage');
   patchConfig('testing');
   patchConfig('raptor');
